@@ -1,0 +1,563 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portofolio Riqi Ismail</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #080d1b;
+  color: white;
+}
+
+:root {
+  --biru: #38bdf8;
+  --gelap: #080d1b;
+  --kartu: #111c32;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  padding: 18px 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(8,13,27,.92);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid #1e3552;
+}
+
+.logo {
+  font-size: 25px;
+  font-weight: 800;
+  color: var(--biru);
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 22px;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  font-size: 13px;
+  transition: .3s;
+}
+
+nav a:hover {
+  color: var(--biru);
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 130px 10% 70px;
+  flex-wrap: wrap;
+  gap: 40px;
+  background:
+  radial-gradient(circle at 80% 40%, #12345b 0%, transparent 35%),
+  #080d1b;
+}
+
+.hero-text {
+  max-width: 580px;
+  animation: muncul 1s ease;
+}
+
+.hero-text h4 {
+  color: var(--biru);
+  letter-spacing: 3px;
+  font-size: 14px;
+}
+
+.hero-text h1 {
+  font-size: clamp(40px, 7vw, 75px);
+  font-weight: 800;
+  line-height: 1.2;
+  margin: 15px 0;
+}
+
+.hero-text h1 span {
+  color: var(--biru);
+}
+
+.hero-text h2 {
+  font-size: 22px;
+  color: #b7c9e0;
+  margin-bottom: 18px;
+}
+
+.hero-text p {
+  color: #9eafc5;
+  line-height: 1.9;
+}
+
+.profil {
+  width: 270px;
+  height: 270px;
+  border-radius: 50%;
+  border: 5px solid var(--biru);
+  box-shadow: 0 0 30px #0284c7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg,#102b4c,#17243d);
+  overflow: hidden;
+  animation: melayang 4s infinite ease-in-out;
+}
+
+.profil img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profil span {
+  font-size: 90px;
+}
+
+.tombol {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 13px 27px;
+  background: var(--biru);
+  color: #07111e;
+  font-weight: 700;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: .3s;
+}
+
+.tombol:hover {
+  box-shadow: 0 0 25px var(--biru);
+  transform: translateY(-4px);
+}
+
+section {
+  padding: 90px 10%;
+}
+
+.judul {
+  font-size: 34px;
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.judul span {
+  color: var(--biru);
+}
+
+.kartu {
+  background: var(--kartu);
+  padding: 28px;
+  border: 1px solid #243a57;
+  border-radius: 18px;
+  transition: .3s;
+}
+
+.kartu:hover {
+  transform: translateY(-5px);
+  border-color: var(--biru);
+  box-shadow: 0 0 20px #0c2c4c;
+}
+
+.kartu h3 {
+  color: var(--biru);
+  margin-bottom: 13px;
+}
+
+.kartu p {
+  color: #b5c4d9;
+  line-height: 1.9;
+  font-size: 14px;
+}
+
+.biodata {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 18px;
+}
+
+.item-biodata {
+  background: var(--kartu);
+  padding: 17px;
+  border-radius: 12px;
+  border-left: 3px solid var(--biru);
+}
+
+.item-biodata small {
+  color: #8ca6c3;
+}
+
+.item-biodata p {
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.pendidikan {
+  max-width: 700px;
+  margin: auto;
+}
+
+.riwayat {
+  border-left: 3px solid var(--biru);
+  padding: 10px 25px 30px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.riwayat::before {
+  content: "";
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  background: var(--biru);
+  border-radius: 50%;
+  left: -8px;
+  top: 15px;
+  box-shadow: 0 0 15px var(--biru);
+}
+
+.riwayat h3 {
+  color: var(--biru);
+}
+
+.keahlian {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(210px,1fr));
+  gap: 20px;
+}
+
+.item-keahlian {
+  background: var(--kartu);
+  border-radius: 16px;
+  padding: 25px;
+  border: 1px solid #243a57;
+  transition: .3s;
+}
+
+.item-keahlian:hover {
+  transform: translateY(-5px);
+  border-color: var(--biru);
+  box-shadow: 0 0 18px #0c2c4c;
+}
+
+.item-keahlian .ikon {
+  font-size: 35px;
+}
+
+.item-keahlian h3 {
+  color: var(--biru);
+  margin: 12px 0;
+}
+
+.item-keahlian p {
+  font-size: 13px;
+  color: #a8bad0;
+}
+
+.kontak {
+  text-align: center;
+}
+
+.kontak .kartu {
+  max-width: 550px;
+  margin: auto;
+}
+
+footer {
+  text-align: center;
+  background: #050914;
+  padding: 30px;
+  color: #8194ad;
+  font-size: 13px;
+}
+
+footer span {
+  color: var(--biru);
+}
+
+@keyframes melayang {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes muncul {
+  from { opacity: 0; transform: translateX(-40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@media(max-width:700px) {
+  nav {
+    padding: 15px 5%;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  nav ul {
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  nav a { font-size: 11px; }
+
+  .hero {
+    text-align: center;
+    padding-top: 160px;
+  }
+
+  .profil {
+    width: 210px;
+    height: 210px;
+  }
+
+  section {
+    padding: 65px 6%;
+  }
+
+  .biodata {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- MENU NAVIGASI -->
+<nav>
+  <div class="logo">RIQI.DEV</div>
+  <ul>
+    <li><a href="#beranda">Beranda</a></li>
+    <li><a href="#tentang">Tentang</a></li>
+    <li><a href="#biodata">Biodata</a></li>
+    <li><a href="#pendidikan">Pendidikan</a></li>
+    <li><a href="#keahlian">Keahlian</a></li>
+    <li><a href="#kontak">Kontak</a></li>
+  </ul>
+</nav>
+
+<!-- BERANDA -->
+<div class="hero" id="beranda">
+
+  <div class="hero-text">
+    <h4>SELAMAT DATANG DI PORTOFOLIO SAYA</h4>
+
+    <h1>RIQI <span>ISMAIL</span></h1>
+
+    <h2>Pelajar Teknik Komputer dan Jaringan</h2>
+
+    <p>
+      Halo! Saya Riqi Ismail, siswa kelas X TKJ
+      SMK Negeri 2 Panyabungan. Saya tertarik
+      pada teknologi, komputer, jaringan,
+      pemrograman HTML, dan dunia olahraga.
+    </p>
+
+    <a href="#tentang" class="tombol">
+      Lihat Profil Saya
+    </a>
+  </div>
+
+  <div class="profil">
+    <img src="foto.jpg" alt="Foto Riqi"
+    onerror="this.style.display='none';
+    this.parentElement.innerHTML='<span>👨‍💻</span>';">
+  </div>
+
+</div>
+
+<!-- TENTANG -->
+<section id="tentang">
+  <h2 class="judul">TENTANG <span>SAYA</span></h2>
+
+  <div class="kartu">
+    <h3>Siapa Saya?</h3>
+
+    <p>
+      Perkenalkan, nama saya Riqi Ismail.
+      Saya merupakan siswa SMK Negeri 2 Panyabungan
+      jurusan Teknik Komputer dan Jaringan (TKJ),
+      kelas X TKJ.
+
+      Saya memiliki semangat untuk belajar,
+      berkembang, dan mengenal lebih jauh
+      tentang dunia teknologi informasi.
+
+      Saya tertarik mempelajari komputer,
+      jaringan, Microsoft Office, dan HTML.
+      Selain teknologi, saya juga menyukai olahraga.
+    </p>
+  </div>
+</section>
+
+<!-- BIODATA -->
+<section id="biodata">
+  <h2 class="judul">BIODATA <span>PRIBADI</span></h2>
+
+  <div class="biodata">
+
+    <div class="item-biodata">
+      <small>Nama Lengkap</small>
+      <p>Riqi Ismail</p>
+    </div>
+
+    <div class="item-biodata">
+      <small>Tempat, Tanggal Lahir</small>
+      <p>Paris, 02 April 2011</p>
+    </div>
+
+    <div class="item-biodata">
+      <small>Jenis Kelamin</small>
+      <p>Laki-laki</p>
+    </div>
+
+    <div class="item-biodata">
+      <small>Agama</small>
+      <p>Islam</p>
+    </div>
+
+    <div class="item-biodata">
+      <small>Alamat</small>
+      <p>PSG (Paris Saint Germain)</p>
+    </div>
+
+    <div class="item-biodata">
+      <small>Kelas</small>
+      <p>X TKJ</p>
+    </div>
+
+    <div class="item-biodata">
+      <small>Nomor HP</small>
+      <p>08××××34××12</p>
+    </div>
+
+    <div class="item-biodata">
+      <small>Email</small>
+      <p>riqiismail@gmail.com</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- PENDIDIKAN -->
+<section id="pendidikan">
+  <h2 class="judul">RIWAYAT <span>PENDIDIKAN</span></h2>
+
+  <div class="pendidikan">
+
+    <div class="riwayat">
+      <h3>SMK Negeri 2 Panyabungan</h3>
+      <p>Jurusan Teknik Komputer dan Jaringan</p>
+      <p>Kelas X TKJ - Sedang menempuh pendidikan</p>
+    </div>
+
+    <div class="riwayat">
+      <h3>SMP 1 PANSEL</h3>
+      <p>Pendidikan sebelumnya</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- KEAHLIAN -->
+<section id="keahlian">
+  <h2 class="judul">PROGRAM <span>KEAHLIAN</span></h2>
+
+  <div class="keahlian">
+
+    <div class="item-keahlian">
+      <div class="ikon">📄</div>
+      <h3>Microsoft Word</h3>
+      <p>Membuat, mengedit, dan mengatur dokumen.</p>
+    </div>
+
+    <div class="item-keahlian">
+      <div class="ikon">📊</div>
+      <h3>Microsoft Excel</h3>
+      <p>Mengolah data, membuat tabel, dan perhitungan.</p>
+    </div>
+
+    <div class="item-keahlian">
+      <div class="ikon">📽️</div>
+      <h3>Microsoft PowerPoint</h3>
+      <p>Membuat dan merancang presentasi yang menarik.</p>
+    </div>
+
+    <div class="item-keahlian">
+      <div class="ikon">🌐</div>
+      <h3>HTML</h3>
+      <p>Mempelajari dasar HTML untuk membuat dan menyusun halaman website.</p>
+    </div>
+
+    <div class="item-keahlian">
+      <div class="ikon">💻</div>
+      <h3>Komputer</h3>
+      <p>Mengenal perangkat keras dan perangkat lunak komputer.</p>
+    </div>
+
+    <div class="item-keahlian">
+      <div class="ikon">🔌</div>
+      <h3>Jaringan Komputer</h3>
+      <p>Mempelajari dasar jaringan komputer dalam jurusan TKJ.</p>
+    </div>
+
+    <div class="item-keahlian">
+      <div class="ikon">⚽</div>
+      <h3>Olahraga</h3>
+      <p>Memiliki minat dan hobi dalam bidang olahraga.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- KONTAK -->
+<section class="kontak" id="kontak">
+  <h2 class="judul">HUBUNGI <span>SAYA</span></h2>
+
+  <div class="kartu">
+    <h3>Terima Kasih Telah Berkunjung!</h3>
+
+    <p>
+      Demikian portofolio pribadi saya.
+      Semoga saya dapat terus belajar,
+      berkembang, dan meraih cita-cita.
+    </p>
+
+    <p>Email: riqiismail@gmail.com</p>
+
+    <a href="mailto:riqiismail@gmail.com" class="tombol">
+      Kirim Email
+    </a>
+  </div>
+</section>
+
+<!-- KAKI HALAMAN -->
+<footer>
+  <p>Dibuat oleh <span>RIQI ISMAIL</span></p>
+  <p>© 2026 Portofolio Pribadi | SMK Negeri 2 Panyabungan</p>
+  <p>Kelas X TKJ</p>
+</footer>
+
+</body>
+</html>
